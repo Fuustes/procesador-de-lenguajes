@@ -1,0 +1,59 @@
+Terminales = { eof function id ( ) { } void , let if ; switch case ent : default int float boolean string write read return break = *= && > + cad real }
+NoTerminales = { P F H A K C B W W_ T S S_ L Q X E E_ R R_ U U_ V V_ }
+Axioma = P
+Producciones = { 
+P -> B P
+P -> F P
+P -> eof
+F -> function H id ( A ) { C } 
+H -> T
+H -> void
+A -> T id K
+A -> void
+K -> , T id K
+K -> lambda
+C -> B C
+C -> lambda
+B -> if ( E ) S
+B -> let T id ;
+B -> S
+B -> switch ( E ) { W }
+W -> case ent : C W_
+W_ -> W
+W_ -> default : C
+W_ -> lambda
+T -> int
+T -> float
+T -> boolean
+T -> string
+S -> write E ;
+S -> read id ;
+S -> return X ;
+S -> id S_
+S -> break ;
+S_ -> = E ;
+S_ -> *= E ;
+S_ -> ( L ) ;
+L -> E Q
+L -> lambda
+Q -> , E Q
+Q -> lambda
+X -> E
+X -> lambda
+E -> R E_
+E_ -> && R E_
+E_ -> lambda
+R -> U R_
+R_ -> > U R_
+R_ -> lambda
+U -> V U_
+U_ -> + V U_
+U_ -> lambda
+V -> id V_
+V -> ( E )
+V -> ent
+V -> cad
+V -> real
+V_ -> lambda
+V_ -> ( L )
+}
